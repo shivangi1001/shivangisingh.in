@@ -1424,19 +1424,26 @@ function sendPhDoodle() {
   const cv = document.getElementById('ph-paint-canvas');
   if (!cv) return;
   const btn = document.querySelector('.ph-pbtn-send');
-  const a = document.createElement('a');
-  a.href = cv.toDataURL('image/png');
-  a.download = 'doodle-for-shivangi.png';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  if (btn) {
-    btn.textContent = 'Saved! 💾';
-    btn.disabled = true;
-    setTimeout(() => { btn.textContent = 'Send ✉️'; btn.disabled = false; }, 2500);
-  }
-  const note = document.getElementById('ph-send-note');
-  if (note) { note.style.display = 'block'; setTimeout(() => { note.style.display = 'none'; }, 6000); }
+  cv.toBlob(blob => {
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    const fd = new FormData();
+    fd.append('_subject', 'Someone drew you a doodle! 🎨');
+    fd.append('_captcha', 'false');
+    fd.append('_next', 'https://shivangisingh.in');
+    fd.append('message', 'A visitor from your website painted this for you ✨');
+    fd.append('doodle', blob, 'doodle-for-shivangi.png');
+    fetch('https://formsubmit.co/s10.shivangi@gmail.com', {
+      method: 'POST', body: fd, mode: 'no-cors'
+    })
+    .then(() => {
+      if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    })
+    .catch(() => {
+      if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    });
+  }, 'image/png');
 }
 
 // Init taskbar (About Me is open by default)
