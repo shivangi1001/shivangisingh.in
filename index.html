@@ -773,6 +773,7 @@ s10.shivangi@gmail.com
           <button class="pbtn" id="paint-save">Save PNG</button>
           <button class="pbtn" id="paint-send" onclick="sendDoodle()" style="background:#315d9e;color:#fff;border-color:#1a3a6e">Send ✉️</button>
         </div>
+        <input type="text" id="paint-name" placeholder="who are you? (optional)" maxlength="50" style="width:calc(100% - 10px);margin:4px 5px 2px;padding:2px 6px;border:2px inset #aaa;font-size:11px;font-family:Tahoma,sans-serif;background:#fff;color:#222;box-sizing:border-box">
         <div class="paint-area" style="position:relative">
           <div id="paint-welcome">
             <p>i paint for people i love</p>
@@ -1038,6 +1039,7 @@ s10.shivangi@gmail.com
           <input type="color" id="ph-color" value="#000000" style="width:32px;height:28px;padding:0;border:1px solid #aaa;border-radius:3px;cursor:pointer">
           <button class="ph-pbtn" onclick="phClear()">Clear</button>
           <button class="ph-pbtn ph-pbtn-send" onclick="sendPhDoodle()">Send ✉️</button>
+          <input type="text" id="ph-paint-name" placeholder="who are you? (optional)" maxlength="50" style="width:100%;box-sizing:border-box;margin-top:6px;padding:4px 8px;border:1px solid #aaa;border-radius:3px;font-size:12px;font-family:inherit;background:#fff;color:#222">
         </div>
       </div>
     </div>
@@ -1350,6 +1352,11 @@ function sendDoodle() {
     if (!cv) return;
     var btn = document.getElementById('paint-send');
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    var nameEl = document.getElementById('paint-name');
+    var visitorName = nameEl ? nameEl.value.trim() : '';
+    var msg = visitorName
+      ? visitorName + ' from shivangisingh.in painted this for you ✨'
+      : 'A visitor from shivangisingh.in painted this for you ✨';
     var tmpC = document.createElement('canvas');
     var scale = Math.min(1, 300 / cv.width);
     tmpC.width = Math.round(cv.width * scale);
@@ -1358,7 +1365,8 @@ function sendDoodle() {
     var doodleUrl = tmpC.toDataURL('image/jpeg', 0.35);
     emailjs.send('service_l1o6jdb', 'template_6ws0mhh', {
       doodle_url: doodleUrl,
-      visitor_msg: 'A visitor from shivangisingh.in painted this for you ✨'
+      visitor_msg: msg,
+      visitor_name: visitorName || 'anonymous'
     }, {publicKey: 'sd21jBWW3uEoQiL4u'})
     .then(function() {
       if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false; setTimeout(function(){ btn.textContent = 'Send ✉️'; }, 3000); }
@@ -1430,6 +1438,11 @@ function sendPhDoodle() {
     if (!cv) return;
     var btn = document.querySelector('.ph-pbtn-send');
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    var nameEl = document.getElementById('ph-paint-name');
+    var visitorName = nameEl ? nameEl.value.trim() : '';
+    var msg = visitorName
+      ? visitorName + ' from shivangisingh.in painted this for you ✨'
+      : 'A visitor from shivangisingh.in painted this for you ✨';
     var tmpC = document.createElement('canvas');
     var scale = Math.min(1, 300 / cv.width);
     tmpC.width = Math.round(cv.width * scale);
@@ -1438,7 +1451,8 @@ function sendPhDoodle() {
     var doodleUrl = tmpC.toDataURL('image/jpeg', 0.35);
     emailjs.send('service_l1o6jdb', 'template_6ws0mhh', {
       doodle_url: doodleUrl,
-      visitor_msg: 'A visitor from shivangisingh.in painted this for you ✨'
+      visitor_msg: msg,
+      visitor_name: visitorName || 'anonymous'
     }, {publicKey: 'sd21jBWW3uEoQiL4u'})
     .then(function() {
       if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false; setTimeout(function(){ btn.textContent = 'Send ✉️'; }, 3000); }
