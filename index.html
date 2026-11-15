@@ -1347,25 +1347,23 @@ function sendDoodle() {
     const cv = document.getElementById('paint-canvas');
     if (!cv) return;
     const btn = document.getElementById('paint-send');
-    cv.toBlob(blob => {
-      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-      const fd = new FormData();
-      fd.append('access_key', 'd2313c60-e687-4570-afdd-a03cb23786fe');
-      fd.append('subject', 'Someone drew you a doodle! 🎨');
-      fd.append('message', 'A visitor from your website painted this for you ✨');
-      fd.append('from_name', 'Website Visitor');
-      fd.append('attachment', blob, 'doodle-for-shivangi.png');
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-      })
-      .catch(() => {
-        if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-      });
-    }, 'image/png');
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    const fd = new FormData();
+    fd.append('access_key', 'd2313c60-e687-4570-afdd-a03cb23786fe');
+    fd.append('subject', 'Someone drew you a doodle! 🎨');
+    fd.append('message', 'A visitor from your website painted something for you ✨
+They used the Paint window on shivangisingh.in');
+    fd.append('from_name', 'Website Visitor');
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    })
+    .catch(() => {
+      if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    });
   }
 
 // ── Phone Paint ─────────────────────────────────────────────
@@ -1428,25 +1426,23 @@ function sendPhDoodle() {
     const cv = document.getElementById('ph-paint-canvas');
     if (!cv) return;
     const btn = document.querySelector('.ph-pbtn-send');
-    cv.toBlob(blob => {
-      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-      const fd = new FormData();
-      fd.append('access_key', 'd2313c60-e687-4570-afdd-a03cb23786fe');
-      fd.append('subject', 'Someone drew you a doodle! 🎨');
-      fd.append('message', 'A visitor from your website painted this for you ✨');
-      fd.append('from_name', 'Website Visitor');
-      fd.append('attachment', blob, 'doodle-for-shivangi.png');
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-      })
-      .catch(() => {
-        if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-      });
-    }, 'image/png');
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    const fd = new FormData();
+    fd.append('access_key', 'd2313c60-e687-4570-afdd-a03cb23786fe');
+    fd.append('subject', 'Someone drew you a doodle! 🎨');
+    fd.append('message', 'A visitor from your website painted something for you ✨
+They used the Paint window on shivangisingh.in');
+    fd.append('from_name', 'Website Visitor');
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    })
+    .catch(() => {
+      if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    });
   }
 
 // Init taskbar (About Me is open by default)
