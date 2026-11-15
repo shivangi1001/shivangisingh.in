@@ -115,7 +115,9 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:Tahoma,Verdana,Aria
 }
 
 /* ── LIBRARY ─────────────────────────────────────────────── */
-.lib-wrap{display:flex;flex-direction:column;gap:14px}
+.lib-wrap{display:flex;flex-direction:row;gap:20px;align-items:flex-start}
+.lib-left{flex:0 0 auto;display:flex;flex-direction:column;gap:10px}
+.lib-right{flex:1;min-width:0}
 .lib-photo{width:100%;max-height:200px;object-fit:cover;border-radius:5px;border:1px solid #ddd}
 .lib-text{font-size:12px;line-height:1.65;color:#333}
 .lib-link{
@@ -126,6 +128,9 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:Tahoma,Verdana,Aria
 }
 .lib-link:hover{background:#245edb}
 
+.vcard-hdr{background:linear-gradient(135deg,#0a246a 0%,#315d9e 100%);color:#fff;padding:14px 18px;margin-bottom:2px}
+.vcard-name{font-size:16px;font-weight:700;letter-spacing:.03em}
+.vcard-role{font-size:11px;opacity:.8;margin-top:3px;letter-spacing:.02em}
 /* ── FIND ME ─────────────────────────────────────────────── */
 .find-links{display:flex;flex-direction:column;gap:9px;padding:4px}
 .find-link{
@@ -575,13 +580,13 @@ s10.shivangi@gmail.com
     <div class="xp-body">
       <div class="xp-content">
         <div class="work-cards">
-<div class="work-card work-current"><div class="work-card-hdr"><span class="work-title">Svabotix</span><span class="work-date">2026 – Present</span></div><div class="work-role">Founder</div><div class="work-desc">Automating garment stitching — starting from specific, tractable sub-processes toward a world where every garment is produced only when it is ordered. No overproduction, no waste.</div><div class="work-tags"><span class="work-tag">automation</span><span class="work-tag">garment manufacturing</span><span class="work-tag">mechanism design</span><span class="work-tag">hardware</span></div></div>
-<div class="work-card"><div class="work-card-hdr"><span class="work-title">Airbound Aerospace</span><span class="work-date">Jul 2024 – 2026</span></div><div class="work-role">Product Development Engineer — R&D</div><div class="work-desc">Joined as first hardware R&D engineer — worked through design, manufacturing, composites, molding, systems and what not. From 1 drone to 100 to a complete new design, covered a lot through the journey. My favourite part was the ambiguity — I didn't know what I'd work on tomorrow because it depended on what would break today.</div><div class="work-tags"><span class="work-tag">VTOL drones</span><span class="work-tag">composites</span><span class="work-tag">mechanisms</span><span class="work-tag">CAD</span><span class="work-tag">DFM</span></div></div>
-<div class="work-card"><div class="work-card-hdr"><span class="work-title">Solclean Robotics</span><span class="work-date">2023 – Jan 2025</span></div><div class="work-role">Co-Founder</div><div class="work-desc">Built autonomous solar panel cleaning robots during final year at MIT-WPU. Went through 3 design iterations from concept to working prototype. Achieved up to 35% improvement in panel output efficiency in testing. Exited on joining Airbound full-time.</div><div class="work-tags"><span class="work-tag">robotics</span><span class="work-tag">solar</span><span class="work-tag">prototype</span><span class="work-tag">student startup</span></div></div>
-<div class="work-card"><div class="work-card-hdr"><span class="work-title">Vegapod Hyperloop · MIT-WPU</span><span class="work-date">Jul 2021 – Jul 2023</span></div><div class="work-role">Head of Aerodynamics & Structures</div><div class="work-desc">Designed and manufactured aeroshell and chassis for a 100 kg Hyperloop prototype (Cd < 0.15). Competed at European Hyperloop Week twice — Edinburgh 2023 and TU Delft 2022. Recognised in Top 6 teams globally, most cost-effective prototype. The goal was to make a completely sustainable prototype — from materials to manufacturing process.</div><div class="work-tags"><span class="work-tag">Hyperloop</span><span class="work-tag">composites</span><span class="work-tag">CFD</span><span class="work-tag">Ansys</span><span class="work-tag">aerodynamics</span></div></div>
-<div class="work-card"><div class="work-card-hdr"><span class="work-title">Indian Hyperloop Committee</span><span class="work-date">2021 – 2023</span></div><div class="work-role">Founder</div><div class="work-desc">Founded to bridge industry, academia, and government around hyperloop in India. Engaged IIT Delhi, IIT Bombay, COEP, and other institutions. Recognised by the National Academy of Indian Railways (2022) and awarded Nation Mover 2023.</div><div class="work-tags"><span class="work-tag">policy</span><span class="work-tag">community</span><span class="work-tag">industry-academia</span></div></div>
-<div class="work-card"><div class="work-card-hdr"><span class="work-title">Mercedes-Benz India</span><span class="work-date">Feb 2024 – Jun 2024</span></div><div class="work-role">Project Intern — Process Planning</div><div class="work-desc">Optimised assembly lines, built a PowerApps dashboard independently for BEMI tracking across the production floor, and developed a spot weld counting system using machine learning.</div><div class="work-tags"><span class="work-tag">process planning</span><span class="work-tag">PowerApps</span><span class="work-tag">ML</span><span class="work-tag">automotive</span></div></div>
-<div class="work-card"><div class="work-card-hdr"><span class="work-title">Fenss Technologies</span><span class="work-date">Apr 2022 – Nov 2022</span></div><div class="work-role">Robotics Engineering Intern</div><div class="work-desc">Designed and manufactured a Three-Finger Gripper for a defence research organisation.</div><div class="work-tags"><span class="work-tag">robotics</span><span class="work-tag">gripper</span><span class="work-tag">3D printing</span><span class="work-tag">defence</span></div></div>
+<div class="work-card work-current"><div class="work-card-hdr"><span class="work-title">Svabotix</span><span class="work-date">2026 – Present</span></div><div class="work-role">Founder</div><div class="work-desc">Automating garment stitching — starting from specific, tractable sub-processes toward a world where every garment is produced only when it is ordered. No overproduction, no waste.</div></div>
+<div class="work-card"><div class="work-card-hdr"><span class="work-title">Airbound Aerospace</span><span class="work-date">Jul 2024 – 2026</span></div><div class="work-role">Product Development Engineer — R&D</div><div class="work-desc">Joined as first hardware R&D engineer — worked through design, manufacturing, composites, molding, systems and what not. From 1 drone to 100 to a complete new design, covered a lot through the journey. My favourite part was the ambiguity — I didn't know what I'd work on tomorrow because it depended on what would break today.</div></div>
+<div class="work-card"><div class="work-card-hdr"><span class="work-title">Solclean Robotics</span><span class="work-date">2023 – Jan 2025</span></div><div class="work-role">Co-Founder</div><div class="work-desc">Built autonomous solar panel cleaning robots during final year at MIT-WPU. Went through 3 design iterations from concept to working prototype. Achieved up to 35% improvement in panel output efficiency in testing. Exited on joining Airbound full-time.</div></div>
+<div class="work-card"><div class="work-card-hdr"><span class="work-title">Vegapod Hyperloop · MIT-WPU</span><span class="work-date">Jul 2021 – Jul 2023</span></div><div class="work-role">Head of Aerodynamics & Structures</div><div class="work-desc">Designed and manufactured aeroshell and chassis for a 100 kg Hyperloop prototype (Cd < 0.15). Competed at European Hyperloop Week twice — Edinburgh 2023 and TU Delft 2022. Recognised in Top 6 teams globally, most cost-effective prototype. The goal was to make a completely sustainable prototype — from materials to manufacturing process.</div></div>
+<div class="work-card"><div class="work-card-hdr"><span class="work-title">Indian Hyperloop Committee</span><span class="work-date">2021 – 2023</span></div><div class="work-role">Founder</div><div class="work-desc">Founded to bridge industry, academia, and government around hyperloop in India. Engaged IIT Delhi, IIT Bombay, COEP, and other institutions. Recognised by the National Academy of Indian Railways (2022) and awarded Nation Mover 2023.</div></div>
+<div class="work-card"><div class="work-card-hdr"><span class="work-title">Mercedes-Benz India</span><span class="work-date">Feb 2024 – Jun 2024</span></div><div class="work-role">Project Intern — Process Planning</div><div class="work-desc">Optimised assembly lines, built a PowerApps dashboard independently for BEMI tracking across the production floor, and developed a spot weld counting system using machine learning.</div></div>
+<div class="work-card"><div class="work-card-hdr"><span class="work-title">Fenss Technologies</span><span class="work-date">Apr 2022 – Nov 2022</span></div><div class="work-role">Robotics Engineering Intern</div><div class="work-desc">Designed and manufactured a Three-Finger Gripper for a defence research organisation.</div></div>
         </div>
       </div>
     </div>
@@ -651,7 +656,8 @@ s10.shivangi@gmail.com
     <div class="xp-body">
       <div class="xp-content">
         <div class="lib-wrap">
-          <div style="font-size:11px;color:#888;margin-bottom:6px;letter-spacing:.03em">favourites ♥</div>
+          <div class="lib-left">
+          <div style="font-size:11px;color:#888;letter-spacing:.03em">favourites ♥</div>
           <div class="bookshelf">
             <div class="book-unit"><div class="book-spine" style="height:138px;background:#740001;color:#ffd700">Harry Potter (all)</div><div class="bdot" style="background:#e84393" title="favourite"></div></div>
             <div class="book-unit"><div class="book-spine" style="height:122px;background:#2d6a2d;color:#fff">From the Earth to the Moon</div><div class="bdot" style="background:#e84393" title="favourite"></div></div>
@@ -661,10 +667,10 @@ s10.shivangi@gmail.com
           </div>
           <div style="margin-top:10px;margin-bottom:14px">
             <a class="lib-substack" href="https://www.goodreads.com/shivangi" target="_blank" rel="noopener" style="color:#553b08">
-              📚 See all on Goodreads
+              📚 Goodreads
             </a>
-          </div>
-          <div class="lib-writing">
+          </div></div>
+          <div class="lib-right"><div class="lib-writing">
             <div class="lib-writing-title">I write too.</div>
             <p><em>&#2346;&#2369;&#2325;&#2366;&#2352;</em> was my first attempt &#8212; written to convey the other side of the story
             to the conservative society I grew up in. Sometimes you don&#8217;t argue; you just write
@@ -674,7 +680,7 @@ s10.shivangi@gmail.com
             <a class="lib-substack" href="https://substack.com/@shiva1007" target="_blank" rel="noopener">
               ✍️ Read on Substack
             </a>
-          </div>
+          </div></div></div>
         </div>
       </div>
     </div>
@@ -701,8 +707,8 @@ s10.shivangi@gmail.com
       <span class="xp-menu-item">Tools</span>
     </div>
     <div class="xp-body">
-      <div class="xp-content">
-        <div class="find-links">
+      <div class="vcard-hdr"><div class="vcard-name">Shivangi Singh</div><div class="vcard-role">Founder, Svabotix</div></div>
+        <div class="xp-content" style="padding:8px"><div class="find-links">
           <a class="find-link" href="https://www.linkedin.com/in/shivangi-singh-7b7a2a200/" target="_blank" rel="noopener">
             <span class="find-icon">💼</span>
             <span class="find-info">
@@ -717,13 +723,6 @@ s10.shivangi@gmail.com
               <div class="find-handle">@Shivangi_si</div>
             </span>
           </a>
-          <a class="find-link" href="https://www.goodreads.com/user/show/203498404-shivangi-singh" target="_blank" rel="noopener">
-            <span class="find-icon">📖</span>
-            <span class="find-info">
-              <div class="find-name">Goodreads</div>
-              <div class="find-handle">Shivangi Singh</div>
-            </span>
-          </a>
           <a class="find-link" href="mailto:s10.shivangi@gmail.com">
             <span class="find-icon">✉️</span>
             <span class="find-info">
@@ -731,17 +730,10 @@ s10.shivangi@gmail.com
               <div class="find-handle">s10.shivangi@gmail.com</div>
             </span>
           </a>
-          <a class="find-link" href="https://shivangisingh.in" target="_blank" rel="noopener">
-            <span class="find-icon">🌐</span>
-            <span class="find-info">
-              <div class="find-name">Website</div>
-              <div class="find-handle">shivangisingh.in</div>
-            </span>
-          </a>
-        </div>
+          </div>
       </div>
     </div>
-    <div class="xp-statusbar">5 items &nbsp;|&nbsp; Ready</div>
+    <div class="xp-statusbar">3 items &nbsp;|&nbsp; Ready</div>
   </div>
 
   <!-- ── PAINT ─────────────────────────────────────── -->
@@ -945,13 +937,13 @@ s10.shivangi@gmail.com
     <div class="sheet-handle"><div class="sheet-handle-bar"></div></div>
     <div class="sheet-title">My Work</div>
     <div class="sheet-body">
-<div class="ph-work-card"><div class="ph-work-title">Svabotix</div><div class="ph-work-role">Founder</div><div class="ph-work-date">2026 – Present</div><div class="ph-work-desc">Automating garment stitching — starting from specific, tractable sub-processes toward a world where every garment is produced only when it is ordered. No overproduction, no waste.</div><div class="ph-tags"><span class="ph-tag">automation</span><span class="ph-tag">garment manufacturing</span><span class="ph-tag">mechanism design</span><span class="ph-tag">hardware</span></div></div>
-<div class="ph-work-card"><div class="ph-work-title">Airbound Aerospace</div><div class="ph-work-role">Product Development Engineer — R&D</div><div class="ph-work-date">Jul 2024 – 2026</div><div class="ph-work-desc">Joined as first hardware R&D engineer — worked through design, manufacturing, composites, molding, systems and what not. From 1 drone to 100 to a complete new design, covered a lot through the journey. My favourite part was the ambiguity — I didn't know what I'd work on tomorrow because it depended on what would break today.</div><div class="ph-tags"><span class="ph-tag">VTOL drones</span><span class="ph-tag">composites</span><span class="ph-tag">mechanisms</span><span class="ph-tag">CAD</span><span class="ph-tag">DFM</span></div></div>
-<div class="ph-work-card"><div class="ph-work-title">Solclean Robotics</div><div class="ph-work-role">Co-Founder</div><div class="ph-work-date">2023 – Jan 2025</div><div class="ph-work-desc">Built autonomous solar panel cleaning robots during final year at MIT-WPU. Went through 3 design iterations from concept to working prototype. Achieved up to 35% improvement in panel output efficiency in testing. Exited on joining Airbound full-time.</div><div class="ph-tags"><span class="ph-tag">robotics</span><span class="ph-tag">solar</span><span class="ph-tag">prototype</span><span class="ph-tag">student startup</span></div></div>
-<div class="ph-work-card"><div class="ph-work-title">Vegapod Hyperloop · MIT-WPU</div><div class="ph-work-role">Head of Aerodynamics & Structures</div><div class="ph-work-date">Jul 2021 – Jul 2023</div><div class="ph-work-desc">Designed and manufactured aeroshell and chassis for a 100 kg Hyperloop prototype (Cd < 0.15). Competed at European Hyperloop Week twice — Edinburgh 2023 and TU Delft 2022. Recognised in Top 6 teams globally, most cost-effective prototype. The goal was to make a completely sustainable prototype — from materials to manufacturing process.</div><div class="ph-tags"><span class="ph-tag">Hyperloop</span><span class="ph-tag">composites</span><span class="ph-tag">CFD</span><span class="ph-tag">Ansys</span><span class="ph-tag">aerodynamics</span></div></div>
-<div class="ph-work-card"><div class="ph-work-title">Indian Hyperloop Committee</div><div class="ph-work-role">Founder</div><div class="ph-work-date">2021 – 2023</div><div class="ph-work-desc">Founded to bridge industry, academia, and government around hyperloop in India. Engaged IIT Delhi, IIT Bombay, COEP, and other institutions. Recognised by the National Academy of Indian Railways (2022) and awarded Nation Mover 2023.</div><div class="ph-tags"><span class="ph-tag">policy</span><span class="ph-tag">community</span><span class="ph-tag">industry-academia</span></div></div>
-<div class="ph-work-card"><div class="ph-work-title">Mercedes-Benz India</div><div class="ph-work-role">Project Intern — Process Planning</div><div class="ph-work-date">Feb 2024 – Jun 2024</div><div class="ph-work-desc">Optimised assembly lines, built a PowerApps dashboard independently for BEMI tracking across the production floor, and developed a spot weld counting system using machine learning.</div><div class="ph-tags"><span class="ph-tag">process planning</span><span class="ph-tag">PowerApps</span><span class="ph-tag">ML</span><span class="ph-tag">automotive</span></div></div>
-<div class="ph-work-card"><div class="ph-work-title">Fenss Technologies</div><div class="ph-work-role">Robotics Engineering Intern</div><div class="ph-work-date">Apr 2022 – Nov 2022</div><div class="ph-work-desc">Designed and manufactured a Three-Finger Gripper for a defence research organisation.</div><div class="ph-tags"><span class="ph-tag">robotics</span><span class="ph-tag">gripper</span><span class="ph-tag">3D printing</span><span class="ph-tag">defence</span></div></div>
+<div class="ph-work-card"><div class="ph-work-title">Svabotix</div><div class="ph-work-role">Founder</div><div class="ph-work-date">2026 – Present</div><div class="ph-work-desc">Automating garment stitching — starting from specific, tractable sub-processes toward a world where every garment is produced only when it is ordered. No overproduction, no waste.</div></div>
+<div class="ph-work-card"><div class="ph-work-title">Airbound Aerospace</div><div class="ph-work-role">Product Development Engineer — R&D</div><div class="ph-work-date">Jul 2024 – 2026</div><div class="ph-work-desc">Joined as first hardware R&D engineer — worked through design, manufacturing, composites, molding, systems and what not. From 1 drone to 100 to a complete new design, covered a lot through the journey. My favourite part was the ambiguity — I didn't know what I'd work on tomorrow because it depended on what would break today.</div></div>
+<div class="ph-work-card"><div class="ph-work-title">Solclean Robotics</div><div class="ph-work-role">Co-Founder</div><div class="ph-work-date">2023 – Jan 2025</div><div class="ph-work-desc">Built autonomous solar panel cleaning robots during final year at MIT-WPU. Went through 3 design iterations from concept to working prototype. Achieved up to 35% improvement in panel output efficiency in testing. Exited on joining Airbound full-time.</div></div>
+<div class="ph-work-card"><div class="ph-work-title">Vegapod Hyperloop · MIT-WPU</div><div class="ph-work-role">Head of Aerodynamics & Structures</div><div class="ph-work-date">Jul 2021 – Jul 2023</div><div class="ph-work-desc">Designed and manufactured aeroshell and chassis for a 100 kg Hyperloop prototype (Cd < 0.15). Competed at European Hyperloop Week twice — Edinburgh 2023 and TU Delft 2022. Recognised in Top 6 teams globally, most cost-effective prototype. The goal was to make a completely sustainable prototype — from materials to manufacturing process.</div></div>
+<div class="ph-work-card"><div class="ph-work-title">Indian Hyperloop Committee</div><div class="ph-work-role">Founder</div><div class="ph-work-date">2021 – 2023</div><div class="ph-work-desc">Founded to bridge industry, academia, and government around hyperloop in India. Engaged IIT Delhi, IIT Bombay, COEP, and other institutions. Recognised by the National Academy of Indian Railways (2022) and awarded Nation Mover 2023.</div></div>
+<div class="ph-work-card"><div class="ph-work-title">Mercedes-Benz India</div><div class="ph-work-role">Project Intern — Process Planning</div><div class="ph-work-date">Feb 2024 – Jun 2024</div><div class="ph-work-desc">Optimised assembly lines, built a PowerApps dashboard independently for BEMI tracking across the production floor, and developed a spot weld counting system using machine learning.</div></div>
+<div class="ph-work-card"><div class="ph-work-title">Fenss Technologies</div><div class="ph-work-role">Robotics Engineering Intern</div><div class="ph-work-date">Apr 2022 – Nov 2022</div><div class="ph-work-desc">Designed and manufactured a Three-Finger Gripper for a defence research organisation.</div></div>
     </div>
   </div>
 
@@ -1016,19 +1008,11 @@ s10.shivangi@gmail.com
         <span class="ph-link-icon">𝕏</span>
         <span><div class="ph-link-name">Twitter / X</div><div class="ph-link-handle">@Shivangi_si</div></span>
       </a>
-      <a class="ph-link" href="https://www.goodreads.com/user/show/203498404-shivangi-singh" target="_blank" rel="noopener">
-        <span class="ph-link-icon">📖</span>
-        <span><div class="ph-link-name">Goodreads</div><div class="ph-link-handle">Shivangi Singh</div></span>
-      </a>
       <a class="ph-link" href="mailto:s10.shivangi@gmail.com">
         <span class="ph-link-icon">✉️</span>
         <span><div class="ph-link-name">Email</div><div class="ph-link-handle">s10.shivangi@gmail.com</div></span>
       </a>
-      <a class="ph-link" href="https://shivangisingh.in" target="_blank" rel="noopener">
-        <span class="ph-link-icon">🌐</span>
-        <span><div class="ph-link-name">Website</div><div class="ph-link-handle">shivangisingh.in</div></span>
-      </a>
-    </div>
+      </div>
   </div>
 
   <div class="sheet" id="sheet-paint">
@@ -1433,20 +1417,29 @@ function phClear() {
 function sendPhDoodle() {
   const cv = document.getElementById('ph-paint-canvas');
   if (!cv) return;
+  const btn = document.querySelector('.ph-pbtn-send');
   cv.toBlob(blob => {
-    const file = new File([blob], 'doodle-for-shivangi.png', {type:'image/png'});
-    if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
-      navigator.share({files:[file], title:'A doodle for Shivangi!'}).catch(()=>{});
-    } else {
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    const fd = new FormData();
+    fd.append('_subject', 'Someone drew you a doodle! 🎨');
+    fd.append('_captcha', 'false');
+    fd.append('_template', 'table');
+    fd.append('message', 'A visitor from your website painted this for you ✨');
+    fd.append('doodle', blob, 'doodle-for-shivangi.png');
+    fetch('https://formsubmit.co/ajax/s10.shivangi@gmail.com', {
+      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Send ✉️'; btn.disabled = false; }
+    })
+    .catch(() => {
+      if (btn) { btn.textContent = 'Send ✉️'; btn.disabled = false; }
       const a = document.createElement('a');
       a.href = cv.toDataURL('image/png');
       a.download = 'doodle-for-shivangi.png';
       a.click();
-      setTimeout(() => {
-        window.location.href =
-          'mailto:s10.shivangi@gmail.com?subject=A%20doodle%20for%20you!&body=painted%20this%20for%20you%20%E2%80%94%20check%20the%20attachment!';
-      }, 600);
-    }
+    });
   }, 'image/png');
 }
 
