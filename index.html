@@ -1352,15 +1352,25 @@ function sendDoodle() {
       const reader = new FileReader();
       reader.onload = () => {
         const b64 = reader.result.split(',')[1];
-        fetch('https://script.google.com/macros/s/AKfycbyUzEcdyhVGchDqeVr8pgmJkg6EpOpSw8uqdxF-YElKRcvPGun8U1GBepv_NVD_LBB3/exec', {
-          method: 'POST', body: b64,
-          headers: { 'Content-Type': 'text/plain' },
-          mode: 'no-cors'
-        }).then(() => {
+        const fn = 'df' + Date.now();
+        const ifr = document.createElement('iframe');
+        ifr.name = fn; ifr.style.cssText = 'display:none';
+        document.body.appendChild(ifr);
+        const frm = document.createElement('form');
+        frm.method = 'POST';
+        frm.action = 'https://script.google.com/macros/s/AKfycbyUzEcdyhVGchDqeVr8pgmJkg6EpOpSw8uqdxF-YElKRcvPGun8U1GBepv_NVD_LBB3/exec';
+        frm.target = fn;
+        frm.enctype = 'multipart/form-data';
+        frm.style.cssText = 'display:none';
+        const inp = document.createElement('input');
+        inp.type = 'hidden'; inp.name = 'b64'; inp.value = b64;
+        frm.appendChild(inp);
+        document.body.appendChild(frm);
+        frm.submit();
+        setTimeout(() => {
+          try { document.body.removeChild(frm); document.body.removeChild(ifr); } catch(e2) {}
           if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-        }).catch(() => {
-          if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-        });
+        }, 2500);
       };
       reader.readAsDataURL(blob);
     }, 'image/jpeg', 0.7);
@@ -1431,15 +1441,25 @@ function sendPhDoodle() {
       const reader = new FileReader();
       reader.onload = () => {
         const b64 = reader.result.split(',')[1];
-        fetch('https://script.google.com/macros/s/AKfycbyUzEcdyhVGchDqeVr8pgmJkg6EpOpSw8uqdxF-YElKRcvPGun8U1GBepv_NVD_LBB3/exec', {
-          method: 'POST', body: b64,
-          headers: { 'Content-Type': 'text/plain' },
-          mode: 'no-cors'
-        }).then(() => {
+        const fn = 'df' + Date.now();
+        const ifr = document.createElement('iframe');
+        ifr.name = fn; ifr.style.cssText = 'display:none';
+        document.body.appendChild(ifr);
+        const frm = document.createElement('form');
+        frm.method = 'POST';
+        frm.action = 'https://script.google.com/macros/s/AKfycbyUzEcdyhVGchDqeVr8pgmJkg6EpOpSw8uqdxF-YElKRcvPGun8U1GBepv_NVD_LBB3/exec';
+        frm.target = fn;
+        frm.enctype = 'multipart/form-data';
+        frm.style.cssText = 'display:none';
+        const inp = document.createElement('input');
+        inp.type = 'hidden'; inp.name = 'b64'; inp.value = b64;
+        frm.appendChild(inp);
+        document.body.appendChild(frm);
+        frm.submit();
+        setTimeout(() => {
+          try { document.body.removeChild(frm); document.body.removeChild(ifr); } catch(e2) {}
           if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-        }).catch(() => {
-          if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-        });
+        }, 2500);
       };
       reader.readAsDataURL(blob);
     }, 'image/jpeg', 0.7);
