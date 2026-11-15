@@ -1346,21 +1346,26 @@ function dismissPaintWelcome() {
 function sendDoodle() {
   const cv = document.getElementById('paint-canvas');
   if (!cv) return;
+  const btn = document.getElementById('paint-send');
   cv.toBlob(blob => {
-    const file = new File([blob], 'doodle-for-shivangi.png', {type:'image/png'});
-    if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
-      navigator.share({files:[file], title:'A doodle for you!'}).catch(()=>{});
-    } else {
-      // Desktop: download PNG then open email
-      const a = document.createElement('a');
-      a.href = cv.toDataURL('image/png');
-      a.download = 'doodle-for-shivangi.png';
-      a.click();
-      setTimeout(() => {
-        window.location.href =
-          'mailto:s10.shivangi@gmail.com?subject=A%20doodle%20for%20you!&body=I%20painted%20this%20for%20you%20%E2%80%94%20check%20the%20attachment!';
-      }, 600);
-    }
+    if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+    const fd = new FormData();
+    fd.append('_subject', 'Someone drew you a doodle! 🎨');
+    fd.append('_captcha', 'false');
+    fd.append('_next', 'https://shivangisingh.in');
+    fd.append('message', 'A visitor from your website painted this for you ✨');
+    fd.append('doodle', blob, 'doodle-for-shivangi.png');
+    fetch('https://formsubmit.co/s10.shivangi@gmail.com', {
+      method: 'POST', body: fd, mode: 'no-cors'
+    })
+    .then(() => {
+      if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    })
+    .catch(() => {
+      if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+    });
   }, 'image/png');
 }
 
