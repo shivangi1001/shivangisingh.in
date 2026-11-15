@@ -1348,22 +1348,22 @@ function sendDoodle() {
     if (!cv) return;
     const btn = document.getElementById('paint-send');
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-    const fd = new FormData();
-    fd.append('access_key', 'd2313c60-e687-4570-afdd-a03cb23786fe');
-    fd.append('subject', 'Someone drew you a doodle! 🎨');
-    fd.append('message', 'A visitor from your website painted something for you ✨
-They used the Paint window on shivangisingh.in');
-    fd.append('from_name', 'Website Visitor');
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-    })
-    .then(r => r.json())
-    .then(data => {
-      if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-    })
-    .catch(() => {
-      if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-    });
+    cv.toBlob(blob => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const b64 = reader.result.split(',')[1];
+        fetch('https://script.google.com/macros/s/AKfycbyUzEcdyhVGchDqeVr8pgmJkg6EpOpSw8uqdxF-YElKRcvPGun8U1GBepv_NVD_LBB3/exec', {
+          method: 'POST', body: b64,
+          headers: { 'Content-Type': 'text/plain' },
+          mode: 'no-cors'
+        }).then(() => {
+          if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+        }).catch(() => {
+          if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+        });
+      };
+      reader.readAsDataURL(blob);
+    }, 'image/jpeg', 0.7);
   }
 
 // ── Phone Paint ─────────────────────────────────────────────
@@ -1427,22 +1427,22 @@ function sendPhDoodle() {
     if (!cv) return;
     const btn = document.querySelector('.ph-pbtn-send');
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
-    const fd = new FormData();
-    fd.append('access_key', 'd2313c60-e687-4570-afdd-a03cb23786fe');
-    fd.append('subject', 'Someone drew you a doodle! 🎨');
-    fd.append('message', 'A visitor from your website painted something for you ✨
-They used the Paint window on shivangisingh.in');
-    fd.append('from_name', 'Website Visitor');
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-    })
-    .then(r => r.json())
-    .then(data => {
-      if (btn) { btn.textContent = data.success ? 'Sent! ✓' : 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-    })
-    .catch(() => {
-      if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
-    });
+    cv.toBlob(blob => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const b64 = reader.result.split(',')[1];
+        fetch('https://script.google.com/macros/s/AKfycbyUzEcdyhVGchDqeVr8pgmJkg6EpOpSw8uqdxF-YElKRcvPGun8U1GBepv_NVD_LBB3/exec', {
+          method: 'POST', body: b64,
+          headers: { 'Content-Type': 'text/plain' },
+          mode: 'no-cors'
+        }).then(() => {
+          if (btn) { btn.textContent = 'Sent! ✓'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+        }).catch(() => {
+          if (btn) { btn.textContent = 'Failed 😕'; btn.disabled = false; setTimeout(() => { btn.textContent = 'Send ✉️'; }, 3000); }
+        });
+      };
+      reader.readAsDataURL(blob);
+    }, 'image/jpeg', 0.7);
   }
 
 // Init taskbar (About Me is open by default)
